@@ -1,6 +1,7 @@
 package com.amazon.actiondriver;
 
 import java.time.Duration;
+import com.amazon.base.BaseClass;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -9,6 +10,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.amazon.base.BaseClass;
+
 public class ActionDriver {
 	
 	private WebDriver driver ;
@@ -16,7 +19,8 @@ public class ActionDriver {
 	
 	public ActionDriver(WebDriver driver) {
 		this.driver = driver ;
-		wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		int explicitWait = Integer.parseInt(BaseClass.getProp().getProperty("explicitWait")) ;
+		wait = new WebDriverWait(driver, Duration.ofSeconds(explicitWait));
 	}
 	
 	//Method to click an element
@@ -71,13 +75,7 @@ public class ActionDriver {
 	public boolean isDisplayed(By by) {
 		try {
 			waitForElementToBeVisible(by);
-			boolean isDisplayed = driver.findElement(by).isDisplayed();
-			if(isDisplayed) {
-				System.out.println("Element is visible");
-				return isDisplayed;
-			} else {
-				return isDisplayed ;
-			}
+			return driver.findElement(by).isDisplayed();
 		} catch (Exception e) {
 			System.out.println("Element is not displayed: "+ e.getMessage());
 			return false ;
@@ -100,7 +98,7 @@ public class ActionDriver {
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver ;
 			WebElement element = driver.findElement(by) ;
-			js.executeScript("arguments[0],scrollIntoView(true)", element) ;
+			js.executeScript("arguments[0],scrollIntoView(true);", element) ;
 		} catch (Exception e) {
 			System.out.println("Unable to locate element: " + e.getMessage());
 		}
@@ -116,7 +114,7 @@ public class ActionDriver {
 	}
 	
 	//Wait for element to be visible
-	private void waitForElementToBeVisible(By by) {
+	public void waitForElementToBeVisible(By by) {
 		try {
 			wait.until(ExpectedConditions.visibilityOfElementLocated(by)) ;
 		} catch (Exception e) {
