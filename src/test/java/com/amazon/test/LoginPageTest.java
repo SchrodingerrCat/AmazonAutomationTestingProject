@@ -26,5 +26,12 @@ public class LoginPageTest extends BaseClass {
 		homePage.logout();
 		staticWait(2) ;
 	}
+	
+	@Test
+	public void invalidLoginTest() {
+		loginPage.login("amazonproject44@gmail.com", "randomPass1");
+		String expectedErrorMessage = "Your password is incorrect" ;
+		Assert.assertTrue(loginPage.verifyErrorMessage(expectedErrorMessage), "Test Failed; Invalid Error Message");
+	}
 
 }

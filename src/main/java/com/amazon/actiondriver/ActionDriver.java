@@ -56,19 +56,22 @@ public class ActionDriver {
 	}
 	
 	//Method to compare Two text
-	public void compareText(By by, String expectedText) {
+	public boolean compareText(By by, String expectedText) {
 		try {
 			waitForElementToBeVisible(by);
 			String actualText = driver.findElement(by).getText() ;
 			if(expectedText.equals(actualText)) {
 				System.out.println("Text are Matching: " + actualText + " equals " + expectedText);
+				return true ;
 			}
 			else {
 				System.out.println("Text are not Matching: " + actualText + " not equals " + expectedText);
+				return false ;
 			}
 		} catch (Exception e) {
 			System.out.println("Unable to compare texts" + e.getMessage());
 		}
+		return false ;
 	}
 	
 	//Method to check if an element is displayed

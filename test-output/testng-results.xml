@@ -1,47 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-06-17T22:15:00 IST" name="AmazonProjectSuite" finished-at="2026-06-17T22:16:44 IST" duration-ms="104604">
+  <suite started-at="2026-06-17T23:04:01 IST" name="Default suite" finished-at="2026-06-17T23:04:26 IST" duration-ms="25403">
     <groups>
     </groups>
-    <test started-at="2026-06-17T22:15:00 IST" name="AmazonPojectTest" finished-at="2026-06-17T22:16:44 IST" duration-ms="104604">
-      <class name="com.amazon.test.LoginPageTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.amazon.test.LoginPageTest@712625fd]" started-at="2026-06-17T22:15:05 IST" name="setup" finished-at="2026-06-17T22:15:10 IST" duration-ms="5013" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method is-config="true" signature="setupPages()[pri:0, instance:com.amazon.test.LoginPageTest@712625fd]" started-at="2026-06-17T22:15:10 IST" name="setupPages" finished-at="2026-06-17T22:15:10 IST" duration-ms="13" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setupPages -->
-        <test-method signature="verifyValidLoginTest()[pri:0, instance:com.amazon.test.LoginPageTest@712625fd]" started-at="2026-06-17T22:15:10 IST" name="verifyValidLoginTest" finished-at="2026-06-17T22:16:44 IST" duration-ms="93465" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyValidLoginTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.amazon.test.LoginPageTest@712625fd]" started-at="2026-06-17T22:16:44 IST" name="tearDown" finished-at="2026-06-17T22:16:44 IST" duration-ms="529" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- com.amazon.test.LoginPageTest -->
-      <class name="com.amazon.test.DummyClass">
-        <test-method is-config="true" signature="loadConfig()[pri:0, instance:com.amazon.test.DummyClass@4be29ed9]" started-at="2026-06-17T22:15:00 IST" name="loadConfig" finished-at="2026-06-17T22:15:00 IST" duration-ms="10" status="PASS">
+    <test started-at="2026-06-17T23:04:01 IST" name="Default test" finished-at="2026-06-17T23:04:26 IST" duration-ms="25403">
+      <class name="com.amazon.test.HomePageTest">
+        <test-method is-config="true" signature="loadConfig()[pri:0, instance:com.amazon.test.HomePageTest@28261e8e]" started-at="2026-06-17T23:04:01 IST" name="loadConfig" finished-at="2026-06-17T23:04:01 IST" duration-ms="13" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loadConfig -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.amazon.test.DummyClass@4be29ed9]" started-at="2026-06-17T22:15:00 IST" name="setup" finished-at="2026-06-17T22:15:05 IST" duration-ms="5288" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.amazon.test.HomePageTest@28261e8e]" started-at="2026-06-17T23:04:01 IST" name="setup" finished-at="2026-06-17T23:04:08 IST" duration-ms="7544" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="dummyTest()[pri:0, instance:com.amazon.test.DummyClass@4be29ed9]" started-at="2026-06-17T22:15:05 IST" name="dummyTest" finished-at="2026-06-17T22:15:05 IST" duration-ms="27" status="PASS">
+        <test-method is-config="true" signature="setupPages()[pri:0, instance:com.amazon.test.HomePageTest@28261e8e]" started-at="2026-06-17T23:04:08 IST" name="setupPages" finished-at="2026-06-17T23:04:08 IST" duration-ms="13" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- dummyTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.amazon.test.DummyClass@4be29ed9]" started-at="2026-06-17T22:15:05 IST" name="tearDown" finished-at="2026-06-17T22:15:05 IST" duration-ms="220" status="PASS">
+        </test-method> <!-- setupPages -->
+        <test-method signature="verifyAmazonLogo()[pri:0, instance:com.amazon.test.HomePageTest@28261e8e]" started-at="2026-06-17T23:04:08 IST" name="verifyAmazonLogo" finished-at="2026-06-17T23:04:26 IST" duration-ms="17525" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyAmazonLogo -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.amazon.test.HomePageTest@28261e8e]" started-at="2026-06-17T23:04:26 IST" name="tearDown" finished-at="2026-06-17T23:04:26 IST" duration-ms="283" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.amazon.test.DummyClass -->
-    </test> <!-- AmazonPojectTest -->
-  </suite> <!-- AmazonProjectSuite -->
+      </class> <!-- com.amazon.test.HomePageTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>
