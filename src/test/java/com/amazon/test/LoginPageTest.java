@@ -30,7 +30,7 @@ public class LoginPageTest extends BaseClass {
 	@Test
 	public void invalidLoginTest() {
 		loginPage.login("amazonproject44@gmail.com", "randomPass1");
-		String expectedErrorMessage = "Your password is incorrect" ;
+		String expectedErrorMessage = "Your password is incorrect1" ;
 		Assert.assertTrue(loginPage.verifyErrorMessage(expectedErrorMessage), "Test Failed; Invalid Error Message");
 	}
 
