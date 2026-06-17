@@ -15,11 +15,15 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
+import com.amazon.actiondriver.ActionDriver;
+
 public class BaseClass {
 
 	protected static Properties prop;
 
 	protected static WebDriver driver;
+
+	private static ActionDriver actionDriver;
 
 	@BeforeSuite
 	public void loadConfig() throws IOException {
@@ -28,13 +32,19 @@ public class BaseClass {
 		FileInputStream fis = new FileInputStream("src/main/resources/config.properties");
 		prop.load(fis);
 	}
-	
+
 	@BeforeMethod
 	public void setup() throws IOException {
-		System.out.println("Setting up WebDriver for: "+this.getClass().getSimpleName());
-		launchBrowser() ;
-		configureBrowser() ;
-		staticWait(2) ;
+		System.out.println("Setting up WebDriver for: " + this.getClass().getSimpleName());
+		launchBrowser();
+		configureBrowser();
+		staticWait(2);
+
+		// Initialize the actionDriver only once
+		if (actionDriver == null) {
+			actionDriver = new ActionDriver(driver);
+			System.out.println("ActionDriver instance is created.");
+		}
 	}
 
 	private void launchBrowser() {
@@ -64,7 +74,7 @@ public class BaseClass {
 		try {
 			driver.get(prop.getProperty("url"));
 		} catch (Exception e) {
-			System.out.println("Failed to Navigate to the URL: "+e.getMessage());
+			System.out.println("Failed to Navigate to the URL: " + e.getMessage());
 		}
 	}
 
@@ -74,27 +84,54 @@ public class BaseClass {
 			try {
 				driver.quit();
 			} catch (Exception e) {
-				System.out.println("unable to quit the driver: "+e.getMessage());
+				System.out.println("unable to quit the driver: " + e.getMessage());
 			}
 		}
+
+		System.out.println("WebDriver instance is closed.");
+
+		driver = null;
+		actionDriver = null;
 	}
-	
-	//Getter method for prop
-	public static Properties getProp() {
-		return prop ;
-	}
-	
-	//Driver getter method
-	public WebDriver getDriver() {
+
+	/*
+	 * 
+	 * 
+	 * //Driver getter method public WebDriver getDriver() { return driver; }
+	 */
+
+	// Getter Method for WebDriver
+	public static WebDriver getDriver() {
+
+		if (driver == null) {
+			System.out.println("WebDriver is not initialized");
+			throw new IllegalStateException("WebDriver is not initialized");
+		}
 		return driver;
 	}
-	
-	//Driver setter method
-	public void setDriver(WebDriver driver) {
-		this.driver = driver ;
+
+	// Getter Method for ActionDriver
+	public static ActionDriver getActionDriver() {
+
+		if (actionDriver == null) {
+			System.out.println("ActionDriver is not initialized");
+			throw new IllegalStateException("ActionDriver is not initialized");
+		}
+		return actionDriver;
+		
 	}
 	
-	//Static wait for pause
+	//Getter method for prop 
+	public static Properties getProp() { 
+		return prop ; 
+	}
+
+	// Driver setter method
+	public void setDriver(WebDriver driver) {
+		this.driver = driver;
+	}
+
+	// Static wait for pause
 	public void staticWait(int seconds) {
 		LockSupport.parkNanos(TimeUnit.SECONDS.toNanos(seconds));
 	}

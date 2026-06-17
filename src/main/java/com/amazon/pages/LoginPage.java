@@ -18,8 +18,12 @@ public class LoginPage extends BaseClass {
 	private By errorMessage = By.xpath("//div[contains(text(),'Your password is incorrect')]") ;
 	
 	//Initialize the ActionDriver object by passing WebDriver instance
-	public LoginPage(WebDriver driver) {
+	/* public LoginPage(WebDriver driver) {
 		this.actionDriver = new ActionDriver(driver) ;
+	} */
+	
+	public LoginPage(WebDriver driver) {
+		this.actionDriver = BaseClass.getActionDriver() ;
 	}
 	
 	//Method to perform login

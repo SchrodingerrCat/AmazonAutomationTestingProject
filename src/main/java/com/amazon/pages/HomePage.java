@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import com.amazon.actiondriver.ActionDriver;
+import com.amazon.base.BaseClass;
 
 public class HomePage {
 
@@ -16,8 +17,12 @@ public class HomePage {
 	private By amazonLogo = By.className("nav-logo-base");
 
 	// Initialize the ActionDriver object by passing WebDriver instance
-	public HomePage(WebDriver driver) {
+	/* public HomePage(WebDriver driver) {
 		this.actionDriver = new ActionDriver(driver) ;
+	} */
+	
+	public HomePage(WebDriver driver) {
+		this.actionDriver = BaseClass.getActionDriver() ;
 	}
 	
 	//Method to verify if Amazon text is visible
