@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<suite name="AmazonProjectSuite">
-	<test name="AmazonPojectTest">
-		<classes>
-			<class name="com.amazon.test.DummyClass"></class>
-			<class name="com.amazon.test.LoginPageTest"></class>
-		</classes>
-	</test>
-</suite>
