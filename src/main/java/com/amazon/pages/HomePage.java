@@ -2,6 +2,7 @@ package com.amazon.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import com.amazon.actiondriver.ActionDriver;
 import com.amazon.base.BaseClass;
@@ -15,6 +16,9 @@ public class HomePage {
 	private By userIDButton = By.xpath("//i[text()='your account']");
 	private By logoutButton = By.xpath("//a[text()='Sign Out']");
 	private By amazonLogo = By.className("nav-logo-base");
+	
+	private By searchBox = By.id("twotabsearchtextbox");
+    private By searchButton = By.id("nav-search-submit-button");
 
 	// Initialize the ActionDriver object by passing WebDriver instance
 	/* public HomePage(WebDriver driver) {
@@ -39,5 +43,13 @@ public class HomePage {
 		actionDriver.click(userIDButton);
 		actionDriver.click(logoutButton);
 	}
+	
+	//Method to search for product
+	public void searchForProduct(String productName) {
+        WebElement element = actionDriver.findElement(searchBox);
+        element.clear();
+        element.sendKeys(productName);
+        actionDriver.click(searchButton);
+    }
 
 }

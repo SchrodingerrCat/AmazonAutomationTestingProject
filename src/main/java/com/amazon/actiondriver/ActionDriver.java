@@ -38,6 +38,32 @@ public class ActionDriver {
 		}
 	}
 	
+	//Method to get an element
+		public WebElement findElement(By by) {
+			try {
+				waitForElementToBeClickable(by) ;
+				WebElement element = driver.findElement(by);
+				logger.info("found element") ;
+				return element ;
+			} catch (Exception e) {
+				System.out.println("Unable to find the element: "+e.getMessage());
+				logger.error("unable to find element");
+			}
+			return null;
+		}
+		
+		//Method to getAttribute
+		public String getAttribute(By by) {
+			try {
+				waitForElementToBeVisible(by);
+				return driver.findElement(by).getAttribute("textContent");
+			} catch (Exception e) {
+				logger.error("Unable to get the text: " + e.getMessage());
+				return "" ;
+			}
+		}
+		
+	
 	//Method to enter text into an input field
 	public void enterText(By by, String value) {
 		try {
