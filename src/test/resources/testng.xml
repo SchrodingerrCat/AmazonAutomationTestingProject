@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="AmazonProjectSuite">
-	<test name="AmazonPojectTest">
+	<test name="AmazonPojectTest" parallel="tests" thread-count="6">
 		<classes>
-			<class name="com.amazon.test.HomePageTest"></class>		
+			<class name="com.amazon.test.HomePageTest"></class>	
+			<class name="com.amazon.test.LoginPageTest"></class>
+			<class name="com.amazon.test.DummyClass"></class>		
 		</classes>
 	</test>
 </suite>

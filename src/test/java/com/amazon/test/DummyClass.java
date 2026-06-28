@@ -8,7 +8,7 @@ public class DummyClass extends BaseClass{
 	
 	@Test
 	public void dummyTest() {
-		String title = driver.getTitle();
+		String title = getDriver().getTitle();
 		assert title.equals("Amazon Sign-In") : "Test Failed - Title is Not Matching" ;
 		
 		System.out.println("Test Passed - Title is Matching");
